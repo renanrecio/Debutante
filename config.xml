@@ -21,7 +21,6 @@
 		<param name="SENDER_ID" value="299367865586" />
 	</plugin>
     <platform name="android">
-		<icon src="icone_debutante.png"/>
 	    <icon src="www/icone_debutante.png"/>
 	    <icon src="www/icone_debutante.png" gap:platform="android" />
         <icon density="ldpi" src="www/res/icon/android/mipmap-ldpi/ic_launcher.png" />
