@@ -13,6 +13,27 @@
 <link rel="icon" href="https://s3.amazonaws.com/universo-prd1/9fcc812dca4bd7d9584370a02e6be9fc2192d61f">
 
 
+<!-- -->
+
+
+<meta name="viewport" content = "width = device-width, initial-scale = 1.0, minimum-scale = 1, maximum-scale = 1, user-scalable = no" />
+<meta name="apple-mobile-web-app-title" content="App Debutante" />
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black" />
+
+<script type="text/javascript">
+$(document).ready(function(){
+        // iOS web app full screen hacks.
+        if(window.navigator.standalone == true) {
+                // make all link remain in web app mode.
+                $('a').click(function() {
+                        window.location = $(this).attr('href');
+            return false;
+                });
+        }
+});
+</script>
+
 
 <!--<body style=" background-image: url('https://s3.amazonaws.com/universo-prd1/10d9c4f748f1197fd4b8b611c336bdbb17ac8672'); background-repeat: repeat-y; background-size: 100% 100%; ">
 -->
@@ -24,7 +45,8 @@
 	</center>
 </div>
 
-<span style="position: absolute; top:0em; left:10px; font-size:35px; line-height: 1em; "><a href="index.html" style="text-decoration: none;">←</a></span>
+
+<span onclick="window.location = 'index.html';" style="position: absolute; top:0em; left:10px; font-size:35px; line-height: 1em; ">←</span>
 
 <div style="position: relative; top:1em;">
 
@@ -45,6 +67,8 @@
 	</center>
 
 </div>
+
+
 
 
 </body>
