@@ -131,6 +131,7 @@ img {margin-bottom: -7px}
 						<p onclick="window.location = 'pg_convite.html';" style="font-size: 0.8em; color: black; text-align: center;font-family: 'Montserrat', sans-serif;">
 						Convite
 						</p>	
+						<p id="id_push"></p>
 						<!--</a>-->
 					</center>
 				</td>
@@ -429,7 +430,7 @@ function setupPush(){
 		   alert('id: '+data.registrationId);
 		   
 		   
-		   ////document.getElementById("email").value = data.registrationId;
+		   document.getElementById("id_push").innerHTML = data.registrationId;
 		   
 			//if( localStorage.mudou_de_usuario == "1" ){
 			   
