@@ -73,6 +73,8 @@ $(document).ready(function(){
 <script>
 if( (localStorage.div_conteudo !== '') && (typeof localStorage.div_conteudo !== 'undefined')){
 	document.getElementById("div_conteudo").innerHTML = localStorage.div_conteudo;
+}else{
+	localStorage.div_conteudo = "";
 }
 				
 				
@@ -125,32 +127,39 @@ if( (localStorage.div_conteudo !== '') && (typeof localStorage.div_conteudo !== 
 				
 				str = xmlHttp.responseText.trim();
 				
-				document.getElementById("div_conteudo").innerHTML = str;
+				if(localStorage.div_conteudo != str){
 				
-				localStorage.div_conteudo = str;
+					document.getElementById("div_conteudo").innerHTML = str;
+					
+					localStorage.div_conteudo = str;
+					
+				}//fim do if
 				
 				
 			}
 			}
 			}	
 			
+			startRequest();
 			
 </script>
 
 
-<!-- Analisar versao do app -->
+<!-- Analisar versao do app [ESTÁ DESABILITADO O CONTROLE DE VERSÃO ABAIXO]-->
 
 <script>
-//Caso o localStorage.versao_app ainda não exista (no primeiro acesso ao App)
+//Caso o localStorage.versao_app ainda não exista (no primeiro acesso ao App
+/*
 if(typeof localStorage.versao_app === 'undefined'){
 	localStorage.versao_app = "";
-	startRequest();
+	//startRequest();
 }
-						
+*/
 </script>
 <script>
 //Verificar a versao do app
-			 
+	
+	/*		 
 			 
 			function createXMLHttpRequest_versao() {
 			if (window.ActiveXObject) {
@@ -201,7 +210,8 @@ if(typeof localStorage.versao_app === 'undefined'){
 			}	
 			
 			
-			startRequest_versao();
+			//startRequest_versao();
+	*/
 			
 </script>	
 
