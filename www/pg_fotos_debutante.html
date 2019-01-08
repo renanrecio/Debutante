@@ -16,9 +16,9 @@
 <body>
 
 
-<div id="conteudo"  style="position: relative; top:3em;">
+<div id="div_conteudo_fotos_debutante"  style="position: relative; top:3em;">
 
-
+<!--
 	<style>
 
 	/* Grid styles -------------------------------------------------*/
@@ -126,15 +126,9 @@
 		<img id="img_ampliada" src='https://s3.amazonaws.com/universo-prd1-m/b611d62821c857bb241abef26213a2774cc63a08' class='ampliada' alt='' style ="" />				
 		</center>
 	</div>
+-->
 
 </div>
-
-
-
-
-
-
-
 
 
 <!-- Cabeçalho -->
@@ -148,6 +142,90 @@
 <span onclick="window.location = 'index.html';" style="position: fixed; top:0em; left:10px; font-size:35px; line-height: 1em; ">←</span>
 
 <!-- Fim do Cabeçalho -->
+
+
+
+
+<!-- Variaveis de configuração do App -->
+<script src="config_app.js"></script>
+
+<!-- Carregar o que estive no localStorage na div_conteudo_fotos_debutante para funciona offline -->
+
+<script>
+if( (localStorage.div_conteudo_fotos_debutante !== '') && (typeof localStorage.div_conteudo_fotos_debutante !== 'undefined')){
+	document.getElementById("div_conteudo_fotos_debutante").innerHTML = localStorage.div_conteudo_fotos_debutante;
+}else{
+	localStorage.div_conteudo_fotos_debutante = "";
+}
+				
+				
+</script>
+
+
+<!-- Pegar conteudo do BD e colocar na div_conteudo_fotos_debutante -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" ></script> 
+<script>
+//Pegar conteudo convite do BD
+			 
+			 var xmlHttp;
+			 var str;
+			 
+			 
+			function createXMLHttpRequest() {
+			if (window.ActiveXObject) {
+			xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			else if (window.XMLHttpRequest) {
+			xmlHttp = new XMLHttpRequest();
+			}
+			}
+			
+			
+			function startRequest() {
+			createXMLHttpRequest();
+			xmlHttp.onreadystatechange = handleStateChange;
+			
+			
+			
+			xmlHttp.open("POST", "https://sistematize.com/aplicativo/debutante/pegar_conteudo_do_bd.php", true);
+			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			
+			xmlHttp.send("id_app="+id_app+"&aba_do_app=fotos_debutante");
+
+			
+			
+			//alert('entrou na funcao: '+regid+'id_app: '+id_app);
+			
+			
+		
+			}
+
+			
+			function handleStateChange() {
+			if(xmlHttp.readyState == 4) {
+			if(xmlHttp.status == 200) {
+				
+				
+				str = xmlHttp.responseText.trim();
+				
+				if(localStorage.div_conteudo_fotos_debutante != str){
+				
+					document.getElementById("div_conteudo_fotos_debutante").innerHTML = str;
+					
+					localStorage.div_conteudo_fotos_debutante = str;
+					
+				}//fim do if
+				
+				
+			}
+			}
+			}	
+			
+			startRequest();
+			
+</script>
+
+
 
 
 

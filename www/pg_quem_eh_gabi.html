@@ -13,56 +13,50 @@
 
 <link rel="icon" href="https://s3.amazonaws.com/universo-prd1/9fcc812dca4bd7d9584370a02e6be9fc2192d61f">
 
-
-<style>
-body, html {height: 100%}
-.bgimg {
-    background-image: url('imagens_spazio/imagem1spazio.jpg');
-    min-height: 100%;
-    background-position: center;
-    background-size: cover;
-}
-
-h1 {
-	position: relative;
-	font-size:3em; width: 100%;
-	font-family: 'Dancing Script', cursive;
-}
-
-h2 {
-	padding:2em;
-	position: relative;
-	font-size:1.3em;
-	width:100%; 
-	font-family: 'Source Sans Pro', sans-serif;
-	text-align: justify;
-	margin: 18px;"
-}
-
-h3 {
-	position: relative; 
-	font-size:1.4em; 
-	width: 90%; 
-	color:white;
-	font-family: 'Source Sans Pro', sans-serif;
-}
-img {margin-bottom: -7px}
-.w3-row-padding img {margin-bottom: 12px}
-</style>
-
 </head>
 
 <body>
 
-<div style="position: relative; top:0em;  width:100%; height: 3em; background-color: rgb(248, 248, 248);">
-	<center>
-		<span style="font-size:18px; text-align: center; line-height: 2.5em; ">Quem eh Gabi?</span>
-	</center>
-</div>
 
-<span onclick="window.location = 'index.html';" style="position: absolute; top:0em; left:10px; font-size:35px; line-height: 1em; ">←</span>
+<div id="div_conteudo_quem_eh" style="position: relative; top:0em;">
 
-<div style="position: relative; top:0em;">
+	<!--
+	<style>
+	body, html {height: 100%}
+	.bgimg {
+		background-image: url('imagens_spazio/imagem1spazio.jpg');
+		min-height: 100%;
+		background-position: center;
+		background-size: cover;
+	}
+
+	h1 {
+		position: relative;
+		font-size:3em; width: 100%;
+		font-family: 'Dancing Script', cursive;
+	}
+
+	h2 {
+		padding:2em;
+		position: relative;
+		font-size:1.3em;
+		width:100%; 
+		font-family: 'Source Sans Pro', sans-serif;
+		text-align: justify;
+		margin: 18px;"
+	}
+
+	h3 {
+		position: relative; 
+		font-size:1.4em; 
+		width: 90%; 
+		color:white;
+		font-family: 'Source Sans Pro', sans-serif;
+	}
+	img {margin-bottom: -7px}
+	.w3-row-padding img {margin-bottom: 12px}
+	</style>
+
 
 	<div style="position: relative; top:0em; background-color: #ffc9d2; width:100%; height: 12em;">
 		<center>
@@ -146,8 +140,106 @@ img {margin-bottom: -7px}
 			<p style="position: relative; top:1.2em; font-size:1.8em; width: 90%; color:black; font-family: 'Dancing Script', cursive; font-weight: 700;"> Espero você em minha festa! </p>
 		<center>
 	</div>	
+	
+	-->
 
 </div>
+
+
+<!-- Cabeçalho -->
+<div style="position: fixed; top:0em;  width:100%; height: 3em; background-color: rgb(248, 248, 248);">
+	<center>
+		<span style="font-size:18px; text-align: center; line-height: 2.5em; ">Quem é Gabi?</span>
+	</center>
+</div>
+
+
+<span onclick="window.location = 'index.html';" style="position: fixed; top:0em; left:10px; font-size:35px; line-height: 1em; ">←</span>
+
+<!-- Fim do Cabeçalho -->
+
+
+
+
+<!-- Variaveis de configuração do App -->
+<script src="config_app.js"></script>
+
+<!-- Carregar o que estive no localStorage na div_conteudo_quem_eh para funciona offline -->
+
+<script>
+if( (localStorage.div_conteudo_quem_eh !== '') && (typeof localStorage.div_conteudo_quem_eh !== 'undefined')){
+	document.getElementById("div_conteudo_quem_eh").innerHTML = localStorage.div_conteudo_quem_eh;
+}else{
+	localStorage.div_conteudo_quem_eh = "";
+}
+				
+				
+</script>
+
+
+<!-- Pegar conteudo do BD e colocar na div_conteudo_quem_eh -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" ></script> 
+<script>
+//Pegar conteudo convite do BD
+			 
+			 var xmlHttp;
+			 var str;
+			 
+			 
+			function createXMLHttpRequest() {
+			if (window.ActiveXObject) {
+			xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			else if (window.XMLHttpRequest) {
+			xmlHttp = new XMLHttpRequest();
+			}
+			}
+			
+			
+			function startRequest() {
+			createXMLHttpRequest();
+			xmlHttp.onreadystatechange = handleStateChange;
+			
+			
+			
+			xmlHttp.open("POST", "https://sistematize.com/aplicativo/debutante/pegar_conteudo_do_bd.php", true);
+			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			
+			xmlHttp.send("id_app="+id_app+"&aba_do_app=quem_eh");
+
+			
+			
+			//alert('entrou na funcao: '+regid+'id_app: '+id_app);
+			
+			
+		
+			}
+
+			
+			function handleStateChange() {
+			if(xmlHttp.readyState == 4) {
+			if(xmlHttp.status == 200) {
+				
+				
+				str = xmlHttp.responseText.trim();
+				
+				if(localStorage.div_conteudo_quem_eh != str){
+				
+					document.getElementById("div_conteudo_quem_eh").innerHTML = str;
+					
+					localStorage.div_conteudo_quem_eh = str;
+					
+				}//fim do if
+				
+				
+			}
+			}
+			}	
+			
+			startRequest();
+			
+</script>
+
 
 
 </body>
