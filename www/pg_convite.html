@@ -68,6 +68,16 @@ $(document).ready(function(){
 <!-- Variaveis de configuração do App -->
 <script src="config_app.js"></script>
 
+<!-- Carregar o que estive no localStorage na div_conteudo para funciona offline -->
+
+<script>
+if( (localStorage.div_conteudo !== '') && (typeof localStorage.div_conteudo !== 'undefined')){
+	document.getElementById("div_conteudo").innerHTML = localStorage.div_conteudo;
+}
+				
+				
+</script>
+
 
 <!-- Pegar conteudo do BD e colocar na div_conteudo -->
 <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" ></script> 
@@ -117,12 +127,81 @@ $(document).ready(function(){
 				
 				document.getElementById("div_conteudo").innerHTML = str;
 				
+				localStorage.div_conteudo = str;
+				
 				
 			}
 			}
 			}	
 			
-			startRequest();
+			
+</script>
+
+
+<!-- Analisar versao do app -->
+
+<script>
+//Caso o localStorage.versao_app ainda não exista (no primeiro acesso ao App)
+if(typeof localStorage.versao_app === 'undefined'){
+	localStorage.versao_app = "";
+	startRequest();
+}
+						
+</script>
+<script>
+//Verificar a versao do app
+			 
+			 
+			function createXMLHttpRequest_versao() {
+			if (window.ActiveXObject) {
+			xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			else if (window.XMLHttpRequest) {
+			xmlHttp = new XMLHttpRequest();
+			}
+			}
+			
+			
+			function startRequest_versao() {
+			createXMLHttpRequest_versao();
+			xmlHttp.onreadystatechange = handleStateChange_versao;
+			
+			
+			
+			xmlHttp.open("POST", "https://sistematize.com/aplicativo/debutante/pegar_conteudo_do_bd.php", true);
+			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			
+			xmlHttp.send("id_app="+id_app+"&aba_do_app=versao_app");
+
+			
+			
+			//alert('entrou na funcao: '+regid+'id_app: '+id_app);
+			
+			
+		
+			}
+
+			
+			function handleStateChange_versao() {
+			if(xmlHttp.readyState == 4) {
+			if(xmlHttp.status == 200) {
+				
+				
+				str = xmlHttp.responseText.trim();
+			
+				if( localStorage.versao_app !== str){ //Se a versão que vem do BD for diferente da guardada dai atualiza a versão guardada e atualiza a div com conteudo vindo do BD
+				
+					localStorage.versao_app = str;
+					startRequest();
+				}//fim do if		
+				
+				
+			}
+			}
+			}	
+			
+			
+			startRequest_versao();
 			
 </script>	
 
