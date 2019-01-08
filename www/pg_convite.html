@@ -97,9 +97,8 @@ $(document).ready(function(){
 			xmlHttp.open("POST", "https://sistematize.com/aplicativo/debutante/pegar_conteudo_do_bd.php", true);
 			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			
-			xmlHttp.send("id_app="+id_app);
-			
-			alert("id_app="+id_app);
+			xmlHttp.send("id_app="+id_app+"&aba_do_app=convite");
+
 			
 			
 			//alert('entrou na funcao: '+regid+'id_app: '+id_app);
@@ -113,7 +112,6 @@ $(document).ready(function(){
 			if(xmlHttp.readyState == 4) {
 			if(xmlHttp.status == 200) {
 				
-				alert('voltou');
 				
 				str = xmlHttp.responseText.trim();
 				

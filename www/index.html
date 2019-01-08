@@ -538,68 +538,19 @@ function setupPush(){
 			
 			if (link == 'convite') {
 			
-				window.location.href = "pg_convite.html";	 
-			
-			}else{
+				window.location.href = "pg_convite.html";	
 				
-				if (link == 'promocoes') {
-			
-					window.location.href = "promocoes.html";	 
-			
-				}else{
-					if (link == 'chat') {
-			
-						if( (pagina_atual_app != 'chat') && (pagina_atual_app != 'chat_lojista') ){ window.location.href = "chat.html"; }
-						//startRequest_chat();
-						
-			
-					}else{
-						  
-							if (link == 'chat_lojista') {
-			
-							   if( (pagina_atual_app != 'chat') && (pagina_atual_app != 'chat_lojista') ){ window.location.href = "lista_usuarios_do_lojista_chat.html"; }
-							   //startRequest_chat();
-			
-							}else{
-								   if (link == 'aviso_geral') {
-			
-										window.location.href = "aviso_geral.html";	
-							  
-									}else{
-									 /*  navigator.notification.alert(
-										   data.message,         // message
-										   null,                 // callback
-										   data.title,           // title
-										   'Ok'                  // buttonName
-									   );   
-									  */
-									}//fim do else
-							}//fim do else  
-					}//fim do else
-			   }//fim do else
-			   
-			}//fim do else
+			}//fim do if
 			
 		}//fim do else
-		 
-		 /*
-		 if (link) {
-		   showLink(link);
-		 } else {
-		   navigator.notification.alert(
-			   data.message,         // message
-			   null,                 // callback
-			   data.title,           // title
-			   'Ok'                  // buttonName
-		   );         
-		 }
-		 */
+		
 
 		push.finish(function() {
 				 //console.log('success');
-			 }, function() {
+		}, function() {
 				 //console.log('error');
-			 });     
+		});     
+		
 	});
 		 
 	 function playMusic() {
@@ -610,23 +561,7 @@ function setupPush(){
 	   alert("Archived!");
 	 }
 	 
-	 function showLink(link) {
-	   //document.getElementsByName("q")[0].value = artist;
-	   //searchSubmit(new CustomEvent("noop"));
-	   
-	   //confirm('Mt bom');
-	  //if(link == true){
-	  
-	  
-		    //window.location.href = "home.html";
-			window.location.href = "vitrine_virtual.html";
-
-			
-	   //}//fim do if
-	  
-	 }
-	 
-	 
+	
 		
 } //fim da function
  
