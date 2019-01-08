@@ -75,7 +75,6 @@ if( (localStorage.div_conteudo !== '') && (typeof localStorage.div_conteudo !== 
 	document.getElementById("div_conteudo").innerHTML = localStorage.div_conteudo;
 }else{
 	localStorage.div_conteudo = "<center>Sem Internet! Conecte-se à internet para ver o conteúdo do App! </center>";
-	document.getElementById("div_conteudo").innerHTML = localStorage.div_conteudo;
 	
 }
 				
@@ -138,6 +137,8 @@ if( (localStorage.div_conteudo !== '') && (typeof localStorage.div_conteudo !== 
 				}//fim do if
 				
 				
+			}else{
+				document.getElementById("div_conteudo").innerHTML = localStorage.div_conteudo;
 			}
 			}
 			}	
