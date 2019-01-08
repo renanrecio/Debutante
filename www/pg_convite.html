@@ -12,10 +12,6 @@
 
 <link rel="icon" href="https://s3.amazonaws.com/universo-prd1/9fcc812dca4bd7d9584370a02e6be9fc2192d61f">
 
-
-<!-- -->
-
-
 <meta name="viewport" content = "width = device-width, initial-scale = 1.0, minimum-scale = 1, maximum-scale = 1, user-scalable = no" />
 <meta name="apple-mobile-web-app-title" content="App Debutante" />
 <meta name="apple-mobile-web-app-capable" content="yes">
@@ -48,9 +44,9 @@ $(document).ready(function(){
 
 <span onclick="window.location = 'index.html';" style="position: absolute; top:0em; left:10px; font-size:35px; line-height: 1em; ">←</span>
 
-<div style="position: relative; top:1em;">
+<div id="div_conteudo" style="position: relative; top:1em;">
 
-	<center>
+	<!--<center>
 	<h3 style="font-family: &quot;Source Sans Pro&quot;, sans-serif; color: rgb(51, 51, 51); text-align: center;">
 	   <p style="font-family: Poppins, &quot;Helvetica Neue&quot;, Arial, sans-serif; font-size: 10px;">&nbsp;“Um adeus a infância</br>Um sorriso a mocidade</br>Ao amor uma esperança</br>Aos brinquedos uma saudade”</p>
 	</h3>
@@ -65,9 +61,72 @@ $(document).ready(function(){
 	   <p style="text-align: center; width:80%;"><span style="font-size: 12px;">Buffet Spazio Olímpia, Av. Helio Pellegrino, 801 - Vila Olímpia - São Paulo - SP</span></p>
 	   <p style="text-align: center;"><img src="https://sistematize.com/app/imagens_debutante/baixo.png" alt="_______" style="width:100%;"><br></p>
 	</center>
-
+	-->
 </div>
 
+
+<!-- Variaveis de configuração do App -->
+<script src="config_app.js"></script>
+
+
+<!-- Pegar conteudo do BD e colocar na div_conteudo -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" ></script> 
+<script>
+//Pegar conteudo convite do BD
+			 
+			 var xmlHttp;
+			 var str;
+			 
+			 
+			function createXMLHttpRequest() {
+			if (window.ActiveXObject) {
+			xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			else if (window.XMLHttpRequest) {
+			xmlHttp = new XMLHttpRequest();
+			}
+			}
+			
+			
+			function startRequest() {
+			createXMLHttpRequest();
+			xmlHttp.onreadystatechange = handleStateChange;
+			
+			
+			
+			xmlHttp.open("POST", "https://sistematize.com/aplicativo/debutante/pegar_conteudo_do_bd.php", true);
+			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			
+			xmlHttp.send("id_app="+id_app);
+			
+			alert("id_app="+id_app);
+			
+			
+			//alert('entrou na funcao: '+regid+'id_app: '+id_app);
+			
+			
+		
+			}
+
+			
+			function handleStateChange() {
+			if(xmlHttp.readyState == 4) {
+			if(xmlHttp.status == 200) {
+				
+				alert('voltou');
+				
+				str = xmlHttp.responseText.trim();
+				
+				document.getElementById("div_conteudo").innerHTML = str;
+				
+				
+			}
+			}
+			}	
+			
+			startRequest();
+			
+</script>	
 
 
 
