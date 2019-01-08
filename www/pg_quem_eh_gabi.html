@@ -170,7 +170,7 @@
 if( (localStorage.div_conteudo_quem_eh !== '') && (typeof localStorage.div_conteudo_quem_eh !== 'undefined')){
 	document.getElementById("div_conteudo_quem_eh").innerHTML = localStorage.div_conteudo_quem_eh;
 }else{
-	localStorage.div_conteudo_quem_eh = "";
+	localStorage.div_conteudo_quem_eh = "<center>Sem Internet! Conecte-se à internet para ver o conteúdo do App! </center>";
 }
 				
 				
@@ -232,6 +232,8 @@ if( (localStorage.div_conteudo_quem_eh !== '') && (typeof localStorage.div_conte
 				}//fim do if
 				
 				
+			}else{
+				document.getElementById("div_conteudo_quem_eh").innerHTML = localStorage.div_conteudo_quem_eh;
 			}
 			}
 			}	

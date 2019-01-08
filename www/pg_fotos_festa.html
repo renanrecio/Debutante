@@ -127,7 +127,7 @@
 if( (localStorage.div_conteudo_fotos_festa !== '') && (typeof localStorage.div_conteudo_fotos_festa !== 'undefined')){
 	document.getElementById("div_conteudo_fotos_festa").innerHTML = localStorage.div_conteudo_fotos_festa;
 }else{
-	localStorage.div_conteudo_fotos_festa = "";
+	localStorage.div_conteudo_fotos_festa = "<center>Sem Internet! Conecte-se à internet para ver o conteúdo do App! </center>";
 }
 				
 				
@@ -189,6 +189,9 @@ if( (localStorage.div_conteudo_fotos_festa !== '') && (typeof localStorage.div_c
 				}//fim do if
 				
 				
+			}else{
+			
+				document.getElementById("div_conteudo_fotos_festa").innerHTML = localStorage.div_conteudo_fotos_festa;
 			}
 			}
 			}	
