@@ -450,7 +450,7 @@ var app = {
         listeningElement.setAttribute('style', 'display:none;');
         receivedElement.setAttribute('style', 'display:block;');
 
-        console.log('Received Event: ' + id);
+        //console.log('Received Event: ' + id);
 		setupPush();
     }
 };
@@ -517,13 +517,13 @@ function setupPush(){
 	});
 
 	push.on('error', function(e) {
-		   console.log("push error = " + e.message);
+		   //console.log("push error = " + e.message);
 	});
 	   
 		 
 	push.on('notification', function(data) {
 		 
-		 console.log('notification event');
+		 //console.log('notification event');
 		 
 		 
 		 var link = data.additionalData.link;
@@ -596,9 +596,9 @@ function setupPush(){
 		 */
 
 		push.finish(function() {
-				 console.log('success');
+				 //console.log('success');
 			 }, function() {
-				 console.log('error');
+				 //console.log('error');
 			 });     
 	});
 		 
