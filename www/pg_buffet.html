@@ -19,11 +19,13 @@
 
 
 
-<div id="conteudo"  style="position: relative; top:3em;">
+<div id="div_conteudo_site_buffet"  style="position: relative; top:3em;">
+	<!--
 	<center>
 		<iframe id="myframe" width="100%" height="600px" frameborder="0" style="border:0" src="https://sistematize.com/app/spazio.php" allowfullscreen="">
 		</iframe>
 	</center>
+	-->
 </div>
 
 
@@ -41,6 +43,85 @@
 
 <!-- Fim do Cabeçalho -->
 
+
+
+<!-- Variaveis de configuração do App -->
+<script src="config_app.js"></script>
+
+<!-- Carregar o que estive no localStorage na div_conteudo_site_buffet para funciona offline -->
+
+<script>
+if( (localStorage.div_conteudo_site_buffet !== '') && (typeof localStorage.div_conteudo_site_buffet !== 'undefined')){
+	document.getElementById("div_conteudo_site_buffet").innerHTML = localStorage.div_conteudo_site_buffet;
+}else{
+	localStorage.div_conteudo_site_buffet = '<style>.bgimg {    background-image: url(\'imagens_spazio/imagem1spazio.jpg\');    height:25em;    min-height: 100%;    background-position: center;    background-size: cover;}.bgimg2 {    background-image: url(\'imagens_spazio/imagem2spazio_small.png\');    min-height: 30%;    background-position: center;    background-size: cover;}h1 {	position: relative;	font-size:3em; width: 100%;	margin-left:18px;	font-family: \'Dancing Script\', cursive;}h2 {	padding:2em;	position: relative;	font-size:1.3em;	width:100%; 	font-family: \'Source Sans Pro\', sans-serif;	text-align: justify;	margin: 18px;}h3 {	position: relative; 	font-size:1.4em; 	width: 90%; 	color:white;	font-family: \'Source Sans Pro\', sans-serif;}img {margin-bottom: -7px}.w3-row-padding img {margin-bottom: 12px}</style><div style="position: relative; top:0em; background-color: #313131; width:100%; height: 12em;">	<center>		<img src="imagens_spazio/logo_spazio_branco.png" style="position: relative; top: 2em; width:10em;"/>	</center></div><div class="bgimg"></div><div class="w3-container" style="background-color: white; ">    <h1> O Spazio</h1>	<hr style="border-top: 4px solid #8f7623; width: 45%;">	<h2>Somos uma empresa com mais de 25 anos de experiência no mercado, realizando eventos com requinte, sofisticação,	qualidade e o cuidado especial que cada detalhe merece. Nosso diferencial está no atendimento completo,	desde a concepção até a execução de seu tão sonhado evento. </h2></div><div class="w3-container bgimg2">    <p style="position: relative; font-size:2.5em; width: 100%; margin-left:18px; font-family: \'Dancing Script\', cursive;text-align: center; color:white;">Sonhe o que quiser...</p>	<p style="position: relative; font-size:2.5em; width: 100%; margin-left:18px; font-family: \'Dancing Script\', cursive;text-align: center; color:white;">Tornaremos realidade</p>	</div><div class="w3-container" style="background-color: white;">    <p style="font-size:3.2em; padding:0.2em;	font-family: \'Dancing Script\', cursive;	text-align: center;"> Casamentos, Debutantes, Eventos Corporativos...</h1>	<hr style="border-top: 4px solid #8f7623; width: 80%; margin-left: 10%">	<p style="font-size:2em; padding:0.2em;	font-family: \'Source Sans Pro\', sans-serif;	text-align: center;"> Seja qual for a ocasição melhor escolha é aqui!</p></div><div class="w3-row-padding" style="margin-bottom:128px">  <div class="w3-half">    <img src="imagens_spazio/imagem3spazio.jpg" style="width:100%">	<img src="imagens_spazio/imagem5spazio.jpg" style="width:100%">  </div>  <div class="w3-half">	<img src="imagens_spazio/imagem4spazio.jpg" style="width:100%">	<img src="imagens_spazio/imagem11spazio.jpg" style="width:100%">  </div></div><div style="position: relative; top:0em; background-color: #313131; width:100%; height: 35em;">	<center style="position: relative; top:5em;">		<p style="position: relative; top:0em; font-size:2em; width: 90%; color:white;font-family: \'Source Sans Pro\', sans-serif;"> CONTATE-NOS</p>		<h3> Av. Hélio Pellegrino, 801 </h3>		<h3> Vila Olímpia - São Paulo – SP</h3>	<h3> ou </h3> <h3> Avenida Morumbi, 7010 </h3>		<h3> Morumbi - São Paulo – SP</h3>	<h3> (11) 3384-0945 </h3>		<h3> (11) 94034-9831</h3>		<h3> contato@gruppospazio.com.br</h3>		<h3> www.gruppospazio.com.br/</h3>	<center></div>';
+}
+				
+				
+</script>
+
+
+<!-- Pegar conteudo do BD e colocar na div_conteudo_site_buffet -->
+<script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.4.1/jquery.min.js" ></script> 
+<script>
+//Pegar conteudo convite do BD
+			 
+			 var xmlHttp;
+			 var str;
+			 
+			 
+			function createXMLHttpRequest() {
+			if (window.ActiveXObject) {
+			xmlHttp = new ActiveXObject("Microsoft.XMLHTTP");
+			}
+			else if (window.XMLHttpRequest) {
+			xmlHttp = new XMLHttpRequest();
+			}
+			}
+			
+			
+			function startRequest() {
+			createXMLHttpRequest();
+			xmlHttp.onreadystatechange = handleStateChange;
+			
+			
+			
+			xmlHttp.open("POST", "https://sistematize.com/aplicativo/debutante/pegar_conteudo_do_bd.php", true);
+			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
+			
+			xmlHttp.send("id_app="+id_app+"&aba_do_app=site_buffet");
+
+			
+			
+			//alert('entrou na funcao: '+regid+'id_app: '+id_app);
+			
+			
+		
+			}
+
+			
+			function handleStateChange() {
+			if(xmlHttp.readyState == 4) {
+			if(xmlHttp.status == 200) {
+				
+				
+				str = xmlHttp.responseText.trim();
+				
+				document.getElementById("div_conteudo_site_buffet").innerHTML = str;
+					
+				
+				
+			}else{
+			
+				document.getElementById("div_conteudo_site_buffet").innerHTML = localStorage.div_conteudo_site_buffet;
+			
+			}
+			}
+			}	
+			
+			//startRequest();
+			
+</script>
 
 
 </body>
