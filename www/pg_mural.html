@@ -290,6 +290,10 @@ if( (localStorage.nome_depoimento !== '') && (typeof localStorage.nome_depoiment
 				}
 				
 				
+			}else{
+				alert('Sem internet! Conecte-se para enviar o depoimento!');
+				document.getElementById('botao_enviar').style.display = 'block';
+				document.getElementById('msg_enviando').style.display = 'none';
 			}
 			}
 			}	
