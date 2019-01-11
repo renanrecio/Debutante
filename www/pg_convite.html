@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 
-<link rel="icon" href="https://s3.amazonaws.com/universo-prd1/9fcc812dca4bd7d9584370a02e6be9fc2192d61f">
+<link rel="icon" href="https://sistematize.com/aplicativo/debutante_template/icone.png">
 
 <meta name="viewport" content = "width = device-width, initial-scale = 1.0, minimum-scale = 1, maximum-scale = 1, user-scalable = no" />
 <meta name="apple-mobile-web-app-title" content="App Debutante" />
@@ -31,7 +31,7 @@ $(document).ready(function(){
 </script>
 
 
-<!--<body style=" background-image: url('https://s3.amazonaws.com/universo-prd1/10d9c4f748f1197fd4b8b611c336bdbb17ac8672'); background-repeat: repeat-y; background-size: 100% 100%; ">
+<!--<body style=" background-image: url('https://sistematize.com/aplicativo/debutante_template/imagens/fundo.png'); background-repeat: repeat-y; background-size: 100% 100%; ">
 -->
 <body>
 
@@ -52,14 +52,14 @@ $(document).ready(function(){
 	</h3>
 
 
-	<p style="text-align: center;"><img src="https://sistematize.com/app/imagens_debutante/cima.png" alt="_______" style="width:100%;"></br></p>
+	<p style="text-align: center;"><img src="https://sistematize.com/aplicativo/debutante_template/imagens/cima.png" alt="_______" style="width:100%;"></br></p>
 	<p style="text-align: center; width:80%;"><span style="font-size: 12px; ">É com muita alegria que os pais Lúcia e Roberto convidam para a comemoração</span></p>
 	<p style="text-align: center;"><span style="font-size: 18px;">15 anos</span></p>
 	<p style="text-align: center;"><span style="font-size: 18px;">Gabriela</span></p>
 
 	<p style="text-align: center; font-size:14px;">&nbsp;Dia 20 de novembro de 2018, às 21h&nbsp;&nbsp;</p>
 	   <p style="text-align: center; width:80%;"><span style="font-size: 12px;">Buffet Spazio Olímpia, Av. Helio Pellegrino, 801 - Vila Olímpia - São Paulo - SP</span></p>
-	   <p style="text-align: center;"><img src="https://sistematize.com/app/imagens_debutante/baixo.png" alt="_______" style="width:100%;"><br></p>
+	   <p style="text-align: center;"><img src="https://sistematize.com/aplicativo/debutante_template/imagens/baixo.png" alt="_______" style="width:100%;"><br></p>
 	</center>
 	-->
 </div>
@@ -74,8 +74,7 @@ $(document).ready(function(){
 if( (localStorage.div_conteudo !== '') && (typeof localStorage.div_conteudo !== 'undefined')){
 	document.getElementById("div_conteudo").innerHTML = localStorage.div_conteudo;
 }else{
-	localStorage.div_conteudo = "<center>Sem Internet! Conecte-se à internet para ver o conteúdo do App! </center>";
-	
+	localStorage.div_conteudo = "";
 }
 				
 				
@@ -107,7 +106,7 @@ if( (localStorage.div_conteudo !== '') && (typeof localStorage.div_conteudo !== 
 			
 			
 			
-			xmlHttp.open("POST", "https://sistematize.com/aplicativo/debutante/pegar_conteudo_do_bd.php", true);
+			xmlHttp.open("POST", "https://sistematize.com/aplicativo/funcoes_php_app/pegar_conteudo_do_bd.php", true);
 			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			
 			xmlHttp.send("id_app="+id_app+"&aba_do_app=convite");
@@ -137,8 +136,6 @@ if( (localStorage.div_conteudo !== '') && (typeof localStorage.div_conteudo !== 
 				}//fim do if
 				
 				
-			}else{
-				document.getElementById("div_conteudo").innerHTML = localStorage.div_conteudo;
 			}
 			}
 			}	
@@ -180,7 +177,7 @@ if(typeof localStorage.versao_app === 'undefined'){
 			
 			
 			
-			xmlHttp.open("POST", "https://sistematize.com/aplicativo/debutante/pegar_conteudo_do_bd.php", true);
+			xmlHttp.open("POST", "https://sistematize.com/aplicativo/funcoes_php_app/pegar_conteudo_do_bd.php", true);
 			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			
 			xmlHttp.send("id_app="+id_app+"&aba_do_app=versao_app");

@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 
-<link rel="icon" href="https://s3.amazonaws.com/universo-prd1/9fcc812dca4bd7d9584370a02e6be9fc2192d61f">
+<link rel="icon" href="https://sistematize.com/aplicativo/debutante_template/icone.png">
 
 
 <body>
@@ -22,7 +22,7 @@
 <div id="div_conteudo_site_buffet"  style="position: relative; top:3em;">
 	<!--
 	<center>
-		<iframe id="myframe" width="100%" height="600px" frameborder="0" style="border:0" src="https://sistematize.com/app/spazio.php" allowfullscreen="">
+		<iframe id="myframe" width="100%" height="600px" frameborder="0" style="border:0" src="https://sistematize.com/aplicativo/funcoes_php_app/spazio.php" allowfullscreen="">
 		</iframe>
 	</center>
 	-->
@@ -87,7 +87,7 @@ if( (localStorage.div_conteudo_site_buffet !== '') && (typeof localStorage.div_c
 			
 			
 			
-			xmlHttp.open("POST", "https://sistematize.com/aplicativo/debutante/pegar_conteudo_do_bd.php", true);
+			xmlHttp.open("POST", "https://sistematize.com/aplicativo/funcoes_php_app/pegar_conteudo_do_bd.php", true);
 			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			
 			xmlHttp.send("id_app="+id_app+"&aba_do_app=site_buffet");

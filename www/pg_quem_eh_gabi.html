@@ -11,7 +11,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 
-<link rel="icon" href="https://s3.amazonaws.com/universo-prd1/9fcc812dca4bd7d9584370a02e6be9fc2192d61f">
+<link rel="icon" href="https://sistematize.com/aplicativo/debutante_template/icone.png">
 
 </head>
 
@@ -60,7 +60,7 @@
 
 	<div style="position: relative; top:0em; background-color: #ffc9d2; width:100%; height: 12em;">
 		<center>
-			<img src="https://sistematize.com/app/quem_eh_debutante/imagesgabi/quemeganiink.png" style="position: relative; top:2.5em; height: 12em;" />
+			<img src="https://sistematize.com/aplicativo/debutante_template/imagens/quemeganiink.png" style="position: relative; top:2.5em; height: 12em;" />
 		</center>
 	</div>
 
@@ -73,7 +73,7 @@
 				<tr>
 					<td style="width:15%;">
 						<center>
-							<img src="https://sistematize.com/app/quem_eh_debutante/imagesgabi/ornE.png" style="width: 5em; padding: 0.1em;" /> 
+							<img src="https://sistematize.com/aplicativo/debutante_template/imagens/ornE.png" style="width: 5em; padding: 0.1em;" /> 
 						</center>
 					</td>
 					<td style="width:70%;">
@@ -85,7 +85,7 @@
 					</td>
 					<td style="width:15%;">
 						<center>
-							<img src="https://sistematize.com/app/quem_eh_debutante/imagesgabi/ornD.png" style="width: 5em;padding: 0.1em;" />  
+							<img src="https://sistematize.com/aplicativo/debutante_template/imagens/ornD.png" style="width: 5em;padding: 0.1em;" />  
 						</center>
 					</td>
 				</tr>
@@ -99,7 +99,7 @@
 				<tr>
 					<td style="width:15%;">
 						<center>
-							<img src="https://sistematize.com/app/quem_eh_debutante/imagesgabi/sapato.png" style="width: 3.2em;" /> 
+							<img src="https://sistematize.com/aplicativo/debutante_template/imagens/sapato.png" style="width: 3.2em;" /> 
 						</center>
 					</td>
 					<td style="width:70%;">
@@ -111,7 +111,7 @@
 					</td>
 					<td style="width:15%;">
 						<center>
-							<img src="https://sistematize.com/app/quem_eh_debutante/imagesgabi/vestido.png" style="width: 3.2em;" />  
+							<img src="https://sistematize.com/aplicativo/debutante_template/imagens/vestido.png" style="width: 3.2em;" />  
 						</center>
 					</td>
 				</tr>
@@ -128,10 +128,10 @@
 
 	<div class="w3-container">
 	<center style="position:relative;">
-	<img src="https://sistematize.com/app/quem_eh_debutante/imagesgabi/ornIb.png" style="position: relative;top: 1em; width: 70%;" /> 
+	<img src="https://sistematize.com/aplicativo/debutante_template/imagens/ornIb.png" style="position: relative;top: 1em; width: 70%;" /> 
 			<p style="padding-top:2em; padding-bottom:2em;padding-left:1em;padding-right:1em;font-size: 1.6em; color: black; text-align: center;font-family: 'Dancing Script', cursive;">Minha viagem dos sonhos é ir para Londres. Eu quero ser Jornalista e viajar o mundo. Meu desejo para o mundo é que todos possam se entender e respeitar suas diferenças</span></br>
 	</p>
-			<img src="https://sistematize.com/app/quem_eh_debutante/imagesgabi/ornI.png" style="position: relative; bottom:1em; width: 70%;" /> 
+			<img src="https://sistematize.com/aplicativo/debutante_template/imagens/ornI.png" style="position: relative; bottom:1em; width: 70%;" /> 
 		</center>
 	</div>
 
@@ -170,7 +170,7 @@
 if( (localStorage.div_conteudo_quem_eh !== '') && (typeof localStorage.div_conteudo_quem_eh !== 'undefined')){
 	document.getElementById("div_conteudo_quem_eh").innerHTML = localStorage.div_conteudo_quem_eh;
 }else{
-	localStorage.div_conteudo_quem_eh = "<center>Sem Internet! Conecte-se à internet para ver o conteúdo do App! </center>";
+	localStorage.div_conteudo_quem_eh = "";
 }
 				
 				
@@ -202,7 +202,7 @@ if( (localStorage.div_conteudo_quem_eh !== '') && (typeof localStorage.div_conte
 			
 			
 			
-			xmlHttp.open("POST", "https://sistematize.com/aplicativo/debutante/pegar_conteudo_do_bd.php", true);
+			xmlHttp.open("POST", "https://sistematize.com/aplicativo/funcoes_php_app/pegar_conteudo_do_bd.php", true);
 			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			
 			xmlHttp.send("id_app="+id_app+"&aba_do_app=quem_eh");
@@ -232,8 +232,6 @@ if( (localStorage.div_conteudo_quem_eh !== '') && (typeof localStorage.div_conte
 				}//fim do if
 				
 				
-			}else{
-				document.getElementById("div_conteudo_quem_eh").innerHTML = localStorage.div_conteudo_quem_eh;
 			}
 			}
 			}	

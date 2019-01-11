@@ -10,7 +10,7 @@
 <meta name="mobile-web-app-capable" content="yes">
 <meta name="apple-mobile-web-app-capable" content="yes">
 
-<link rel="icon" href="https://s3.amazonaws.com/universo-prd1/9fcc812dca4bd7d9584370a02e6be9fc2192d61f">
+<link rel="icon" href="https://sistematize.com/aplicativo/debutante_template/icone.png">
 
 
 <body>
@@ -18,51 +18,82 @@
 
 <div id="div_conteudo_fotos_festa"  style="position: relative; top:3em;">
 
-	<!--
+<!--
 	<style>
-
-	/* Grid styles -------------------------------------------------*/
-	.cards {
-	  display: grid;
-	  grid-template-columns: repeat(auto-fill, minmax(125px, 1fr));
-	  grid-gap: 30px;
+	* {
+	  box-sizing: border-box;
 	}
 
-
-	/* Generic styles ----------------------------------------------*/
 	body {
-	  font-family: 'Quicksand', sans-serif;
+	  margin: 0;
+	  font-family: Arial;
 	}
 
-
-	.cards {
-	  max-width: 960px;
-	  margin: 0 auto 30px;
-	  margin-right:10px;
-	  margin-left:10px;
+	.header {
+	  text-align: center;
+	  padding: 32px;
 	}
 
-	article {
-	  position: relative;
+	.row {
+	  display: -ms-flexbox; /* IE10 */
+	  display: flex;
+	  -ms-flex-wrap: wrap; /* IE10 */
+	  flex-wrap: wrap;
+	  padding: 0 4px;
 	}
 
-	.article-img {
-	  height: 200px;
-	  width: 100%;
-	  object-fit: cover;
+	/* Create four equal columns that sits next to each other */
+	.column {
+	  -ms-flex: 50%; /* IE10 */
+	  flex: 50%;
+	  max-width: 50%;
+	  padding: 0 4px;
 	}
 
-	.article-title {
-	  position: absolute;
-	  bottom: 0;
-	  width: 100%;
-	  padding: 10px;
-	  background-color: rgba(255, 255, 255, 0.2);
+	.column img {
+	  margin-top: 8px;
+	  vertical-align: middle;
 	}
 
+	/* Responsive layout - makes a two column-layout instead of four columns */
+	@media screen and (max-width: 400px) {
+	  .column {
+		-ms-flex: 50%;
+		flex: 50%;
+		max-width: 50%;
+	  }
+	}
+
+	/* Responsive layout - makes the two columns stack on top of each other instead of next to each other 
+	@media screen and (max-width: 300px) {
+	  .column {
+		-ms-flex: 100%;
+		flex: 100%;
+		max-width: 100%;
+	  }
+	}
+	*/
+
+		article {
+		  position: relative;
+		}
+
+		.article-img {
+		  height: 200px;
+		  width: 50%;
+		  object-fit: cover;
+		}
+
+		.article-title {
+		  position: absolute;
+		  bottom: 0;
+		  width: 100%;
+		  padding: 10px;
+		  background-color: rgba(255, 255, 255, 0.2);
+		}
 
 	</style>
-
+	
 	<style>
 
 	img.ampliada
@@ -78,26 +109,31 @@
 
 
 	</style>
-	
-	
-	<section id="fotos" class="cards" style="display: grid;">
-        <article  >
-          <img onclick = "document.getElementById('img_ampliada').src = this.src; document.getElementById('fotos').style.display = 'none'; document.getElementById('div_foto_ampliado').style.display = 'block';" class="article-img" src="https://s3.amazonaws.com/universo-prd1-m/6d2e103f93fe4960bbf86fe7732a0283660da092" alt=" " />
-          <h3 class="article-title">
-            Aguarde...
-          </h3>
-        </article>
-        
-    </section>
+
+
+	<section id="fotos" class="cards" style="">
+	<div class="row"> 
+	  <div class="column">
+		<article>
+		<img onclick = "document.getElementById('img_ampliada').src = this.src; document.getElementById('fotos').style.display = 'none'; document.getElementById('div_foto_ampliado').style.display = 'block';" src="https://sistematize.com/aplicativo/debutante_template/imagens/aguarde.png" style="width:100%" class="article-img" />
+		<h3 class="article-title">
+			Aguarde...
+		</h3>
+		</article>
+	  </div>
+
+	 
+	</section>
 	  
 	  
 	  
-	<div id="div_foto_ampliado" onclick="document.getElementById('fotos').style.display = 'grid'; document.getElementById('div_foto_ampliado').style.display = 'none';" style="display: none; position:relative; top:0em; left:0em; width:100%;" >
+	<div id="div_foto_ampliado" onclick="document.getElementById('fotos').style.display = 'block'; document.getElementById('div_foto_ampliado').style.display = 'none';" style="display: none; position:relative; top:0em; left:0em; width:100%;" >
 		<p style="position: fixed; top:1.25em; right:1em; color:black; font-size:1.25em;"> X </p>
 		<center>
 		<img id="img_ampliada" src='' class='ampliada' alt='' style ="" />				
 		</center>
 	</div>
+	
 	-->
 	
 </div>
@@ -159,7 +195,7 @@ if( (localStorage.div_conteudo_fotos_festa !== '') && (typeof localStorage.div_c
 			
 			
 			
-			xmlHttp.open("POST", "https://sistematize.com/aplicativo/debutante/pegar_conteudo_do_bd.php", true);
+			xmlHttp.open("POST", "https://sistematize.com/aplicativo/funcoes_php_app/pegar_conteudo_do_bd.php", true);
 			xmlHttp.setRequestHeader("Content-type","application/x-www-form-urlencoded");
 			
 			xmlHttp.send("id_app="+id_app+"&aba_do_app=fotos_festa");
