@@ -281,6 +281,8 @@ if( (localStorage.div_conteudo_fotos_debutante !== '') && (typeof localStorage.d
 				
 			}else{
 				document.getElementById("div_conteudo_fotos_debutante").innerHTML = localStorage.div_conteudo_fotos_debutante;
+				document.getElementById('div_msg_offline').style.display = 'block';
+				$('#div_msg_offline').fadeOut(9000);
 			}
 			}
 			}	

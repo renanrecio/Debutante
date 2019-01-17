@@ -228,6 +228,8 @@ if( (localStorage.div_conteudo_fotos_festa !== '') && (typeof localStorage.div_c
 			}else{
 			
 				document.getElementById("div_conteudo_fotos_festa").innerHTML = localStorage.div_conteudo_fotos_festa;
+				document.getElementById('div_msg_offline').style.display = 'block';
+				$('#div_msg_offline').fadeOut(9000);
 			}
 			}
 			}	
